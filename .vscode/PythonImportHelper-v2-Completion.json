@@ -1,0 +1,74 @@
+[
+    {
+        "label": "print_triangle",
+        "kind": 2,
+        "importPath": "0x00-pascal_triangle.0-main",
+        "description": "0x00-pascal_triangle.0-main",
+        "peekOfCode": "def print_triangle(triangle):\n    \"\"\"\n    Print the triangle\n    \"\"\"\n    for row in triangle:\n        print(\"[{}]\".format(\",\".join([str(x) for x in row])))\nif __name__ == \"__main__\":\n    print_triangle(pascal_triangle(5))",
+        "detail": "0x00-pascal_triangle.0-main",
+        "documentation": {}
+    },
+    {
+        "label": "pascal_triangle",
+        "kind": 5,
+        "importPath": "0x00-pascal_triangle.0-main",
+        "description": "0x00-pascal_triangle.0-main",
+        "peekOfCode": "pascal_triangle = __import__('0-pascal_triangle').pascal_triangle\ndef print_triangle(triangle):\n    \"\"\"\n    Print the triangle\n    \"\"\"\n    for row in triangle:\n        print(\"[{}]\".format(\",\".join([str(x) for x in row])))\nif __name__ == \"__main__\":\n    print_triangle(pascal_triangle(5))",
+        "detail": "0x00-pascal_triangle.0-main",
+        "documentation": {}
+    },
+    {
+        "label": "pascal_triangle",
+        "kind": 2,
+        "importPath": "0x00-pascal_triangle.0-pascal_triangle",
+        "description": "0x00-pascal_triangle.0-pascal_triangle",
+        "peekOfCode": "def pascal_triangle(n):\n    \"\"\"\n    Create a function def pascal_triangle(n):\n    that returns a list of lists of integers\n    representing the Pascal’s triangle of n\n    \"\"\"\n    triangle = []\n    if not isinstance(n, int) or n <= 0:\n        return triangle\n    list = 0",
+        "detail": "0x00-pascal_triangle.0-pascal_triangle",
+        "documentation": {}
+    },
+    {
+        "label": "canUnlockAll",
+        "kind": 2,
+        "importPath": "0-lockboxes",
+        "description": "0-lockboxes",
+        "peekOfCode": "def canUnlockAll(boxes):\n    \"\"\"method that determines if all the boxes can be opened\"\"\"\n    if boxes is None or len(boxes) == 0:\n        return False\n    keys = [0]\n    for key in keys:\n        for new_key in boxes[key]:\n            if new_key not in keys and new_key < len(boxes):\n                keys.append(new_key)\n    if len(keys) == len(boxes):",
+        "detail": "0-lockboxes",
+        "documentation": {}
+    },
+    {
+        "label": "canUnlockAll",
+        "kind": 5,
+        "importPath": "main_0",
+        "description": "main_0",
+        "peekOfCode": "canUnlockAll = __import__('0-lockboxes').canUnlockAll\nboxes = [[1], [2], [3], [4], []]\nprint(canUnlockAll(boxes))\nboxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]\nprint(canUnlockAll(boxes))\nboxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]\nprint(canUnlockAll(boxes))",
+        "detail": "main_0",
+        "documentation": {}
+    },
+    {
+        "label": "boxes",
+        "kind": 5,
+        "importPath": "main_0",
+        "description": "main_0",
+        "peekOfCode": "boxes = [[1], [2], [3], [4], []]\nprint(canUnlockAll(boxes))\nboxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]\nprint(canUnlockAll(boxes))\nboxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]\nprint(canUnlockAll(boxes))",
+        "detail": "main_0",
+        "documentation": {}
+    },
+    {
+        "label": "boxes",
+        "kind": 5,
+        "importPath": "main_0",
+        "description": "main_0",
+        "peekOfCode": "boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]\nprint(canUnlockAll(boxes))\nboxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]\nprint(canUnlockAll(boxes))",
+        "detail": "main_0",
+        "documentation": {}
+    },
+    {
+        "label": "boxes",
+        "kind": 5,
+        "importPath": "main_0",
+        "description": "main_0",
+        "peekOfCode": "boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]\nprint(canUnlockAll(boxes))",
+        "detail": "main_0",
+        "documentation": {}
+    }
+]
