@@ -1,0 +1,38 @@
+[
+    {
+        "label": "minOperations",
+        "kind": 5,
+        "importPath": "0-main",
+        "description": "0-main",
+        "peekOfCode": "minOperations = __import__('0-minoperations').minOperations\nn = 4\nprint(\"Min # of operations to reach {} char: {}\".format(n, minOperations(n)))\nn = 12\nprint(\"Min # of operations to reach {} char: {}\".format(n, minOperations(n)))",
+        "detail": "0-main",
+        "documentation": {}
+    },
+    {
+        "label": "n",
+        "kind": 5,
+        "importPath": "0-main",
+        "description": "0-main",
+        "peekOfCode": "n = 4\nprint(\"Min # of operations to reach {} char: {}\".format(n, minOperations(n)))\nn = 12\nprint(\"Min # of operations to reach {} char: {}\".format(n, minOperations(n)))",
+        "detail": "0-main",
+        "documentation": {}
+    },
+    {
+        "label": "n",
+        "kind": 5,
+        "importPath": "0-main",
+        "description": "0-main",
+        "peekOfCode": "n = 12\nprint(\"Min # of operations to reach {} char: {}\".format(n, minOperations(n)))",
+        "detail": "0-main",
+        "documentation": {}
+    },
+    {
+        "label": "minOperations",
+        "kind": 2,
+        "importPath": "0-minoperations",
+        "description": "0-minoperations",
+        "peekOfCode": "def minOperations(n):\n    \"\"\" calculates the fewest number of operations\n    needed to result in exactly n H characters in the file\n    \"\"\"\n    if n <= 1:\n        return 0\n    a = 2\n    result = 0\n    while a <= n:\n        if n % a == 0:",
+        "detail": "0-minoperations",
+        "documentation": {}
+    }
+]
