@@ -39,7 +39,7 @@
         "kind": 2,
         "importPath": "0-stats",
         "description": "0-stats",
-        "peekOfCode": "def parseLogs():\n    \"\"\"\n    Reads stdin line by line and computes metrics\n    \"\"\"\n    stdin = __import__('sys').stdin\n    line = 0\n    size = 0\n    statusCodes = {}\n    codes = ('200', '301', '400', '401', '403', '404', '405', '500')\n    try:",
+        "peekOfCode": "def parseLogs():\n    \"\"\"\n    Reads stdin line by line and computes metrics\n    \"\"\"\n    stdin = __import__('sys').stdin\n    lineNumber = 0\n    size = 0\n    statusCodes = {}\n    codes = ('200', '301', '400', '401', '403', '404', '405', '500')\n    try:",
         "detail": "0-stats",
         "documentation": {}
     },

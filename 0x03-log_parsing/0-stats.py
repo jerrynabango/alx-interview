@@ -7,13 +7,13 @@ def parseLogs():
     Reads stdin line by line and computes metrics
     """
     stdin = __import__('sys').stdin
-    line = 0
+    lineNumber = 0
     size = 0
     statusCodes = {}
     codes = ('200', '301', '400', '401', '403', '404', '405', '500')
     try:
         for line in stdin:
-            line += 1
+            lineNumber += 1
             line = line.split()
             try:
                 size += int(line[-1])
@@ -24,9 +24,9 @@ def parseLogs():
                         statusCodes[line[-2]] = 1
             except (IndexError, ValueError):
                 pass
-            if line == 10:
+            if lineNumber == 10:
                 report(size, statusCodes)
-                line = 0
+                lineNumber = 0
         report(size, statusCodes)
     except KeyboardInterrupt as e:
         report(size, statusCodes)
