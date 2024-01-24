@@ -7,38 +7,38 @@ def parseLogs():
     Reads stdin line by line and computes metrics
     """
     stdin = __import__('sys').stdin
-    line = 0
-    size = 0
-    status_Codes = {}
+    lineNumber = 0
+    fileSize = 0
+    statusCodes = {}
     codes = ('200', '301', '400', '401', '403', '404', '405', '500')
     try:
         for line in stdin:
-            line += 1
+            lineNumber += 1
             line = line.split()
             try:
-                size += int(line[-1])
+                fileSize += int(line[-1])
                 if line[-2] in codes:
                     try:
-                        status_Codes[line[-2]] += 1
+                        statusCodes[line[-2]] += 1
                     except KeyError:
-                        status_Codes[line[-2]] = 1
+                        statusCodes[line[-2]] = 1
             except (IndexError, ValueError):
                 pass
-            if line == 10:
-                report(size, status_Codes)
-                line = 0
-        report(size, status_Codes)
+            if lineNumber == 10:
+                report(fileSize, statusCodes)
+                lineNumber = 0
+        report(fileSize, statusCodes)
     except KeyboardInterrupt as e:
-        report(size, status_Codes)
+        report(fileSize, statusCodes)
         raise
 
 
-def report(size, status_Codes):
+def report(fileSize, statusCodes):
     """
     Prints the log size and status codes
     """
-    print("File size: {}".format(size))
-    for key, value in sorted(status_Codes.items()):
+    print("File size: {}".format(fileSize))
+    for key, value in sorted(statusCodes.items()):
         print("{}: {}".format(key, value))
 
 
