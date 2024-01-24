@@ -1,0 +1,55 @@
+[
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "parseLogs",
+        "kind": 2,
+        "importPath": "0-stats",
+        "description": "0-stats",
+        "peekOfCode": "def parseLogs():\n    \"\"\"\n    Reads stdin line by line and computes metrics\n    \"\"\"\n    stdin = __import__('sys').stdin\n    line = 0\n    size = 0\n    status_Codes = {}\n    codes = ('200', '301', '400', '401', '403', '404', '405', '500')\n    try:",
+        "detail": "0-stats",
+        "documentation": {}
+    },
+    {
+        "label": "report",
+        "kind": 2,
+        "importPath": "0-stats",
+        "description": "0-stats",
+        "peekOfCode": "def report(size, status_Codes):\n    \"\"\"\n    Prints the log size and status codes\n    \"\"\"\n    print(\"File size: {}\".format(size))\n    for key, value in sorted(status_Codes.items()):\n        print(\"{}: {}\".format(key, value))\nif __name__ == '__main__':\n    parseLogs()",
+        "detail": "0-stats",
+        "documentation": {}
+    }
+]
