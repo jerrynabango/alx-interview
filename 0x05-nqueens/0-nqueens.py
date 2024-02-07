@@ -1,148 +1,66 @@
 #!/usr/bin/python3
 """
-The N queens puzzle is the challenge of placing N
-non-attacking queens on an N×N chessboard.
-
-TODO:
-    * Write a program that solves the N queens problem.
+    N-queen problem
+    The next algo solve any N queen in any NxN
+    Being N > 3
 """
+import sys
 
 
-def queens(chessBoard, row, majestyz, resolve):
+def n_q(t_arr, arr, col, i, n):
     """
-    Args:
-        chessBoard (list)
-        row (int)
-        majestyz (int)
-        resolve (list)
-
-    Returns:
-        resolve (list)
+       n_q - Find all posibles solution for N-queen problem and return it
+             in a list
+       @t_arr: temporaly list to store the all points of a posible solution
+       @arr: store all the solution
+       @col: save a colum use for a queen
+       @i: the row of the chess table
+       @n: Number of queens
     """
-    if majestyz == len(chessBoard):
-        resolve.append(extract(chessBoard))
-        return (resolve)
+    if (i > n):
+        arr.append(t_arr[:])
+        return arr
 
-    for col in range(len(chessBoard)):
-        if chessBoard[row][col] == -1:
-            demo = copyBoard(chessBoard)
-            demo[row][col] = 1
-            cancel(demo, row, col)
-            resolve = queens(demo, row + 1, majestyz + 1, resolve)
-    return (resolve)
+    for j in range(n + 1):
+        if i == 0 or ([i - 1, j - 1] not in t_arr and
+                      [i - 1, j + 1] not in t_arr and
+                      j not in col):
+            if i > 1:
+                dia = 0
+                for k in range(2, i + 1):
+                    if ([i - k, j - k] in t_arr) or ([i - k, j + k] in t_arr):
+                        dia = 1
+                        break
+                if dia:
+                    continue
+            t_arr.append([i, j])
+            col.append(j)
+            n_q(t_arr, arr, col, i + 1, n)
+            col.pop()
+            t_arr.pop()
 
-
-def cancel(chessBoard, row, col):
-    """
-    Cancels out vulnerable positions for the queen
-
-    Args:
-        chessBoard (list)
-        row (int)
-        col (int)
-    """
-    length = len(chessBoard)
-    """Cancel forward positions"""
-    for c in range(col + 1, length):
-        chessBoard[row][c] = 0
-    """Cancel backwards positions"""
-    for c in range(col - 1, -1, -1):
-        chessBoard[row][c] = 0
-    """Cancel down positions"""
-    for r in range(row + 1, length):
-        chessBoard[r][col] = 0
-    """Cancel up positions"""
-    for r in range(row - 1, -1, 1):
-        chessBoard[r][col] = 0
-    """Cancel right downward diagonal positions"""
-    c = col + 1
-    for r in range(row + 1, length):
-        if c >= length:
-            break
-        chessBoard[r][c] = 0
-        c += 1
-    """Cancel left upward diagonal positions"""
-    c = col - 1
-    for r in range(row - 1, -1, -1):
-        if c < 0:
-            break
-        chessBoard[r][c] = 0
-        c -= 1
-    """Cancel right upward diagonal positions"""
-    c = col + 1
-    for r in range(row - 1, -1, -1):
-        if c >= length:
-            break
-        chessBoard[r][c] = 0
-        c += 1
-    """Cancel left downward diagonal positions"""
-    c = col - 1
-    for r in range(row + 1, length):
-        if c < 0:
-            break
-        chessBoard[r][c] = 0
-        c -= 1
+    return arr
 
 
-def chessBoard(N):
-    """
-    Create a board of size N * N
-    """
-    chessBoard = []
-
-    """Create rows"""
-    for row in range(N):
-        chessBoard.append([])
-
-    """Create columns"""
-    for row in chessBoard:
-        for n in range(N):
-            row.append(-1)
-
-    return (chessBoard)
-
-
-def copyBoard(chessBoard):
-    """
-    make a copy of chessBoard
-    """
-    if type(chessBoard) == list:
-        """Recursively copy"""
-        return list(map(copyBoard, chessBoard))
-    return (chessBoard)
-
-
-def extract(chessBoard):
-    """
-    Extract the required outcome from the chess board
-    """
-    outcome = []
-    for row in range(len(chessBoard)):
-        for col in range(len(chessBoard)):
-            if chessBoard[row][col] == 1:
-                outcome.append([row, col])
-                break
-    return (outcome)
-
-
-def execute():
-    import sys
-
+if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
-        sys.exit(1)
-    if sys.argv[1].isnumeric() is False:
+        exit(1)
+
+    try:
+        n = int(sys.argv[1])
+    except BaseException:
         print("N must be a number")
-        sys.exit(1)
-    if int(sys.argv[1]) < 4:
+        exit(1)
+
+    if not isinstance(n, int):
+        print("N must be a number")
+        exit(1)
+
+    elif n < 4:
         print("N must be at least 4")
-        sys.exit(1)
+        exit(1)
 
-    chess = chessBoard(int(sys.argv[1]))
-    resultMatrix = queens(chess, 0, 0, [])
-    for row in resultMatrix:
-        print(row)
-
-
-if __name__ == '__main__':
-    execute()
+    n_q_arr = n_q([], [], [], 0, n - 1)
+    for i in n_q_arr:
+        print(i)
