@@ -111,6 +111,7 @@ def copyBoard(chessBoard):
         return list(map(copyBoard, chessBoard))
     return (chessBoard)
 
+
 def extract(chessBoard):
     """
     Extract the required outcome from the chess board
@@ -123,8 +124,10 @@ def extract(chessBoard):
                 break
     return (outcome)
 
+
 def execute():
     import sys
+
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
