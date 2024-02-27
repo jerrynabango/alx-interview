@@ -1,0 +1,20 @@
+[
+    {
+        "label": "makeChange",
+        "kind": 5,
+        "importPath": "0-main",
+        "description": "0-main",
+        "peekOfCode": "makeChange = __import__('0-making_change').makeChange\nprint(makeChange([1, 2, 25], 37))\nprint(makeChange([1256, 54, 48, 16, 102], 1453))",
+        "detail": "0-main",
+        "documentation": {}
+    },
+    {
+        "label": "makeChange",
+        "kind": 2,
+        "importPath": "0-making_change",
+        "description": "0-making_change",
+        "peekOfCode": "def makeChange(coins, total):\n    \"\"\"fewest number of coins needed to meet total\"\"\"\n    if total <= 0:\n        return 0\n    few = 0\n    count = 0\n    coins.sort(key=lambda x: x, reverse=True)\n    while coins:\n        value = coins[0]\n        if few + value > total:",
+        "detail": "0-making_change",
+        "documentation": {}
+    }
+]
