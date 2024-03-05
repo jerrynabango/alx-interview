@@ -1,0 +1,20 @@
+[
+    {
+        "label": "island_perimeter",
+        "kind": 2,
+        "importPath": "0-island_perimeter",
+        "description": "0-island_perimeter",
+        "peekOfCode": "def island_perimeter(grid):\n    \"\"\"\n    Returns the perimeter of the island described in grid:\n    grid is a list of list of integers:\n    0 represents water\n    1 represents land\n    Each cell is square, with a side length of 1\n    Cells are connected horizontally/vertically (not diagonally).\n    \"\"\"\n    width = len(grid)",
+        "detail": "0-island_perimeter",
+        "documentation": {}
+    },
+    {
+        "label": "island_perimeter",
+        "kind": 5,
+        "importPath": "0-main",
+        "description": "0-main",
+        "peekOfCode": "island_perimeter = __import__('0-island_perimeter').island_perimeter\nif __name__ == \"__main__\":\n    grid = [\n        [0, 0, 0, 0, 0, 0],\n        [0, 1, 0, 0, 0, 0],\n        [0, 1, 0, 0, 0, 0],\n        [0, 1, 1, 1, 0, 0],\n        [0, 0, 0, 0, 0, 0]\n    ]\n    print(island_perimeter(grid))",
+        "detail": "0-main",
+        "documentation": {}
+    }
+]
